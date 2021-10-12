@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VueController.Models.PersonneClasseModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Techno fav</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (PersonneClasseModel item in Model) {
+    <tr>
+        <td>
+            @item.Nom
+        </td>
+        <td>
+            @item.Prenom
+        </td>
+        <td>
+            @item.Techno
+        </td>
+
+        <td>
+            <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Modifier</a>
+            @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
+            @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
+            @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
